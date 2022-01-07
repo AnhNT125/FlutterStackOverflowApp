@@ -1,11 +1,11 @@
 class QuestionData {
-  List<Questions> questions;
+  late List<Questions> questions;
 
-  QuestionData({this.questions});
+  QuestionData({this.questions = const <Questions>[]});
 
   QuestionData.fromJson(Map<String, dynamic> json) {
     if (json['questions'] != null) {
-      questions = new List<Questions>();
+      questions = <Questions>[];
       json['questions'].forEach((v) {
         questions.add(new Questions.fromJson(v));
       });
@@ -22,11 +22,11 @@ class QuestionData {
 }
 
 class Questions {
-  int id;
-  String question;
-  int voteCount;
-  String views;
-  String tags;
+  int? id;
+  String? question;
+  int? voteCount;
+  String? views;
+  String? tags;
 
   Questions({this.id, this.question, this.voteCount, this.views, this.tags});
 
